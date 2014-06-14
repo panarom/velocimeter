@@ -6,80 +6,79 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-
   <TableRow
       android:id="@+id/tableRow1"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:padding="5dip" >
-
-    <TextView
-        android:id="@+id/display_gmt"
-        android:text="G:M:T"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+      android:padding="5dip"
+      android:weightSum="100" >
 
     <TextView
         android:id="@+id/display_elapsed_time"
         android:text="Elapsed:Time"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_weight="50"/>
+
+    <TextView
+        android:id="@+id/display_distance"
+        android:text="0"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
   </TableRow>
-
 
   <TableRow
       android:id="@+id/tableRow2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:padding="5dip" >
+      android:padding="5dip"
+      android:weightSum="100" >
 
     <TextView
         android:id="@+id/display_instantaneous_speed"
         android:text="instantaneous velocity"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_weight="50"/>
 
     <TextView
         android:id="@+id/display_average_speed"
         android:text="average velocity"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
   </TableRow>
-
 
   <TableRow
       android:id="@+id/tableRow3"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:padding="5dip" >
+      android:padding="5dip"
+      android:weightSum="100" >
 
     <TextView
         android:id="@+id/display_numeric_heading"
         android:text="numeric heading"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_weight="50"/>
 
     <TextView
         android:id="@+id/display_string_heading"
         android:text="string heading"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
   </TableRow>
 
   <TableRow
       android:id="@+id/tableRow4"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:padding="5dip" >
+      android:padding="5dip"
+      android:weightSum="100" >
 
     <TextView
         android:id="@+id/display_latitude"
         android:text="latitude"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_weight="50"/>
 
     <TextView
         android:id="@+id/display_longitude"
         android:text="longitude"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
   </TableRow>
-
-
 </TableLayout>
