@@ -13,14 +13,13 @@ public class LocationData
 
     private long distance = 0;
 
-    private static final String ONE_PLACE = "%.1f";
     private static final String TWO_PLACES = "%.2f";
     private static final String FOUR_PLACES = "%.4f";
 
     private static final double M_TO_MI = 6.214e-4;
     private static final double MS_TO_MPH = 2.236936292;
 
-    private static final String TIME_FORMAT = "%H%M%S";
+    private static final String TIME_FORMAT = "%H:%M:%S";
 
     private static final String[] HEADINGS =
     {"N", "NE", "E", "SE", "S", "SW", "W", "NW"};
@@ -63,7 +62,7 @@ public class LocationData
 
     private void setDistanceTravelled()
     {
-        values[1] = String.format(ONE_PLACE, M_TO_MI * distance);
+        values[1] = String.format(TWO_PLACES, M_TO_MI * distance);
     }
 
     private void setInstantaneousSpeed()
@@ -80,7 +79,7 @@ public class LocationData
 
     private void setNumericHeading()
     {
-        values[4] = String.format(TWO_PLACES, currentLocation.getBearing());
+        values[4] = (new Integer(Math.round(currentLocation.getBearing()))).toString();
     }
 
     private void setStringHeading()
