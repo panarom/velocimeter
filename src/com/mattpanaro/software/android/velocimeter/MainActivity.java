@@ -20,6 +20,8 @@ public class MainActivity extends Activity
 
         locationListener = new LocationListener();
         locationListener.onCreate(this, savedInstanceState);
+
+        this.getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     public void updateViews(String[] values)
