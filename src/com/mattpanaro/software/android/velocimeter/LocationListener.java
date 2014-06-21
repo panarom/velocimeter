@@ -13,7 +13,7 @@ implements
     com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener,
     com.google.android.gms.location.LocationListener
 {
-    private static final int INTERVAL = 2000; //2 seconds
+    private static final int INTERVAL = 1000; //GPS poll frequency of 1 second
 
     private LocationRequest locationRequest;
     private LocationClient locationClient;
