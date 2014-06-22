@@ -62,24 +62,26 @@ public class LocationData
 
     private void setDistanceTravelled()
     {
-        values[1] = String.format(TWO_PLACES, M_TO_MI * distance);
+        values[1] = String.format(TWO_PLACES + " mi", M_TO_MI * distance);
     }
 
     private void setInstantaneousSpeed()
     {
-        values[2] = String.format(TWO_PLACES, MS_TO_MPH * currentLocation.getSpeed());
+        values[2] = String.format(TWO_PLACES + " mph",
+                                  MS_TO_MPH * currentLocation.getSpeed());
     }
 
     private void setAverageSpeed()
     {
         long duration = (currentLocation.getTime() - startTime) / 1000; //ms -> s
 
-        values[3] = String.format(TWO_PLACES, MS_TO_MPH * distance / duration);
+        values[3] = String.format(TWO_PLACES + " mph", MS_TO_MPH * distance / duration);
     }
 
     private void setNumericHeading()
     {
-        values[4] = (new Integer(Math.round(currentLocation.getBearing()))).toString();
+        values[4] = //\u00b0 is unicode degree symbol
+            (new Integer(Math.round(currentLocation.getBearing()))).toString() + "\u00b0";
     }
 
     private void setStringHeading()
