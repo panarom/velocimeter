@@ -1,7 +1,5 @@
 package com.mattpanaro.software.android.velocimeter;
 
-import android.app.Activity;
-import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
 import com.google.android.gms.location.LocationClient;
@@ -19,18 +17,18 @@ implements
     private LocationClient locationClient;
 
     private LocationData locationData;
-    private MainActivity mainActivity;
+    private LocationService locationService;
 
-    public void onCreate(MainActivity mainActivity, Bundle bundle)
+    public LocationListener(LocationService locationService)
     {
-        this.mainActivity = mainActivity;
-
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         locationRequest.setInterval(INTERVAL);
         locationRequest.setFastestInterval(INTERVAL);
 
-        locationClient = new LocationClient(mainActivity, this, this);
+        locationClient = new LocationClient(locationService, this, this);
+
+        this.locationService = locationService;
     }
 
     public void onStart()
@@ -62,7 +60,7 @@ implements
         if (locationData == null) locationData = new LocationData(location);
 
         locationData.update(location);
-        mainActivity.updateViews(locationData.values);
+        locationService.updateLocationData(locationData);
     }
 
     public void onProviderDisabled(String provider) {}
