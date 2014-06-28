@@ -29,6 +29,8 @@ public class MainActivity extends Activity implements LocationClient
         setContentView(R.layout.main);
         setTiles();
 
+        (new Buttons()).setup(this);
+
         this.getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
