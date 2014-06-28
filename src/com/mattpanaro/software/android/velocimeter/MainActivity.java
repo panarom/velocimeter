@@ -13,6 +13,11 @@ public class MainActivity extends Activity implements LocationClient
 
     private TextView[] tiles = new TextView[TileProperties.TILE_COUNT];
 
+    public LocationService getLocationService()
+    {
+        return this.locationService;
+    }
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
