@@ -1,31 +1,28 @@
 package com.mattpanaro.software.android.velocimeter;
 
-import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.mattpanaro.software.android.velocimeter.buttonclicklistener.*;
 
 public class Buttons {
+    private static int BUTTON_COUNT = 2;
+    private static String[] BUTTON_NAMES = {"quit_button", "reset_button"};
+
+    private static ButtonClickListener[] CLICK_LISTENERS =
+    {new Quit(), new Reset()};
+
     public void setup(MainActivity mainActivity)
     {
-        ((Button)mainActivity.findViewById(R.id.quit_button))
-            .setOnClickListener(new Quit(mainActivity));
-    }
+        int[] ids = mainActivity.getViewIds(BUTTON_NAMES);
 
-    public class Quit implements View.OnClickListener
-    {
-        private MainActivity mainActivity;
-
-        public Quit(MainActivity mainActivity)
+        ButtonClickListener listener;
+        for(int i = 0; i < BUTTON_COUNT; i++)
         {
-            this.mainActivity = mainActivity;
-        }
+            listener = CLICK_LISTENERS[i];
+            listener.setMainActivity(mainActivity);
 
-        public void onClick(View v)
-        {
-            mainActivity.stopService(new Intent(mainActivity, LocationService.class));
-
-            Toast.makeText(mainActivity, "Service Stopped", Toast.LENGTH_SHORT).show();
+            ((Button)mainActivity.findViewById(ids[i])).setOnClickListener(listener);
         }
     }
 }

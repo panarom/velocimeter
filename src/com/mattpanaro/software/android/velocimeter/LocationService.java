@@ -34,6 +34,11 @@ public class LocationService extends android.app.Service
         for(LocationClient client : locationClients) client.processLocationData(locationData);
     }
 
+    public void reset()
+    {
+        locationListener.getLocationData().reset();
+    }
+
     public LocationService addLocationClient(LocationClient locationClient)
     {
         locationClients.add(locationClient);

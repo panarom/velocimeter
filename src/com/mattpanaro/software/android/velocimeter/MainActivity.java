@@ -55,17 +55,24 @@ public class MainActivity extends Activity implements LocationClient
         for(int i = 0; i < TileProperties.TILE_COUNT; i++) tiles[i].setText(locationData.values[i]);
     }
 
-    private void setTiles()
+    public int[] getViewIds(String[] names)
     {
+        int length = names.length;
+
+        int[] ids = new int[length];
+
         android.content.res.Resources res = getResources();
 
-        int id;
-        for(int i = 0; i < TileProperties.TILE_COUNT; i++)
-        {
-            id = res.getIdentifier(TileProperties.TILE_NAMES[i], "id", getPackageName());
+        for(int i = 0; i < length; i++) ids[i] = res.getIdentifier(names[i], "id", getPackageName());
 
-            tiles[i] = (TextView) findViewById(id);
-        }
+        return ids;
+    }
+
+    private void setTiles()
+    {
+        int[] ids = getViewIds(TileProperties.TILE_NAMES);
+
+        for(int i = 0; i < TileProperties.TILE_COUNT; i++) tiles[i] = (TextView) findViewById(ids[i]);
     }
 
     private ServiceConnection serviceConnection = new ServiceConnection()

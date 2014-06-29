@@ -52,6 +52,12 @@ public class LocationData
         setLongitude();
     }
 
+    public void reset()
+    {
+        startTime = System.currentTimeMillis();
+        distance = 0;
+    }
+
     private void setElapsedTime()
     {
         Time time = new Time(Time.TIMEZONE_UTC);

@@ -31,6 +31,11 @@ implements
         this.locationService = locationService;
     }
 
+    public LocationData getLocationData()
+    {
+        return this.locationData;
+    }
+
     public void onStart()
     {
         locationClient.connect();
