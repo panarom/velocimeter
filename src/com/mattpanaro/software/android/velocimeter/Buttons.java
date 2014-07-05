@@ -6,11 +6,11 @@ import android.widget.Button;
 import com.mattpanaro.software.android.velocimeter.buttonclicklistener.*;
 
 public class Buttons {
-    private static int BUTTON_COUNT = 2;
-    private static String[] BUTTON_NAMES = {"quit_button", "reset_button"};
+    private static int BUTTON_COUNT = 3;
+    private static String[] BUTTON_NAMES = {"quit_button", "reset_button", "record_button"};
 
     private static ButtonClickListener[] CLICK_LISTENERS =
-    {new Quit(), new Reset()};
+    {new Quit(), new Reset(), new Record()};
 
     public void setup(MainActivity mainActivity)
     {
